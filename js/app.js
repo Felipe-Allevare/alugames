@@ -19,12 +19,19 @@ function alterarStatus(id) {
         botao.classList.remove('dashboard__item__button--return');
         botao.textContent = 'Alugar';
         jogosAlugados--;
+        contarEExibirJogosAlugados();
     } else {
         imagem.classList.add('dashboard__item__img--rented');
         botao.textContent = 'Devolver';
         botao.classList.add('dashboard__item__button--return');
         jogosAlugados++;
+        contarEExibirJogosAlugados();
     }
-
+    
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    jogosAlugados = document.querySelectorAll ('.dashboard__item__img--rented').length;
+    contarEExibirJogosAlugados();
+});
 
